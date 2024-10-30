@@ -1,32 +1,34 @@
-// src/functions/certificatesFunctions.js
 const Person = require("../../models/Person.js");
 
+// Conjunto para almacenar los números de certificado únicos generados
 const generatedCertificates = new Set();
+
+// Lista de cursos con título y duración
 const cursos = [
   { titulo: "METROLOGÍA BÁSICA", duracion: 8 },
   { titulo: "VERIFICACIÓN DE MÉTODOS", duracion: 12 },
   { titulo: "REGLAS DE DECISIÓN", duracion: 6 },
   { titulo: "ISO/IEC 10012:2003 SISTEMAS DE GESTIÓN DE LA MEDICIÓN", duracion: 8 },
-  { titulo: "VOCABULARIO INTERNACIONAL DE MERTOLOGÍA", duracion: 8 },
+  { titulo: "VOCABULARIO INTERNACIONAL DE METROLOGÍA", duracion: 8 },
   { titulo: "ESTIMACIÓN DE LA INCERTIDUMBRE", duracion: 8 }
 ];
 
-// Función para generar ID único
-function generateId() {
-  return Math.floor(1000000000 + Math.random() * 9000000000);
-}
-
-// Generar número de certificado único
+// Función para generar un número de certificado único
 function generateCertificate() {
   const prefix = "ME";
   let letters = "";
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  // Genera 4 letras aleatorias
   for (let i = 0; i < 4; i++) {
     letters += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
   }
+
+  // Genera un número de 4 dígitos
   const number = Math.floor(1000 + Math.random() * 9000);
   const certificateNumber = `${prefix}-${letters}-${number}`;
 
+  // Verifica si el número de certificado ya existe para evitar duplicados
   if (generatedCertificates.has(certificateNumber)) {
     return generateCertificate();
   } else {
@@ -35,23 +37,24 @@ function generateCertificate() {
   }
 }
 
-// Crear el certificado para una persona y devolver los datos actualizados
-async function addPersonCertificate(name, courseTitle) {
+// Función para agregar un certificado a una persona y devolver los datos actualizados
+async function addPersonCertificate(name, id, courseTitle) { // Incluye el id como parámetro
   const certificateNumber = generateCertificate();
   const course = cursos.find(c => c.titulo === courseTitle);
 
+  // Si el curso no se encuentra, retorna null
   if (!course) {
-    return null; // No se encontró el curso
+    return null;
   }
 
-  // Busca a la persona por nombre
-  let person = await Person.findOne({ name });
+  // Busca a la persona por nombre e id en la base de datos
+  let person = await Person.findOne({ name, id });
 
-  // Si no existe, crea una nueva persona
+  // Si no existe, crea una nueva persona con el id recibido
   if (!person) {
     person = new Person({
       name,
-      id: generateId(), // Genera un ID único
+      id, // Usa el id recibido en la solicitud
       certificates: []
     });
   }
@@ -61,16 +64,17 @@ async function addPersonCertificate(name, courseTitle) {
     course: courseTitle,
     duration: course.duracion,
     certificate: certificateNumber,
-    date: new Date() // Usa el objeto Date directamente
+    date: new Date() // Fecha actual
   };
 
-  // Agrega el certificado al array de certificados
+  // Agrega el certificado al array de certificados de la persona
   person.certificates.push(personCertificate);
 
   // Guarda los cambios en la base de datos
   await person.save();
 
-  return person; // Devuelve la persona actualizada
+  // Devuelve la persona actualizada con el nuevo certificado
+  return person;
 }
 
 module.exports = { addPersonCertificate };

@@ -5,6 +5,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const mongoURI = process.env.MONGO_URI;
+console.log("ALERTA MONGO URI: ",mongoURI);
+
 
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
@@ -17,5 +19,5 @@ mongoose.connection.once('open', () => {
     console.log(`Conectado a la base de datos: ${mongoose.connection.name}`);
 });
 
-module.exports = mongoose;
+module.exports = mongoose; 
 

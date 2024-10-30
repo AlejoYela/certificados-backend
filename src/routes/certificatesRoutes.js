@@ -17,10 +17,10 @@ router.get("/", async (req, res) => {
 
 // Ruta para agregar un certificado a una persona
 router.post("/add", async (req, res) => {
-  const { name, courseTitle } = req.body;
+  const { name, id, courseTitle } = req.body; // Incluye id aquí
 
   try {
-    const personData = await addPersonCertificate(name, courseTitle);
+    const personData = await addPersonCertificate(name, id, courseTitle); // Pasa id como argumento
     if (!personData) {
       return res.status(404).json({ message: "Curso no encontrado" });
     }
