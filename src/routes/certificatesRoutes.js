@@ -15,6 +15,18 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await Person.findOne({ id: req.params.id });
+    if (!user) {
+      return res.status(404).json({ message: "Usuario no encontrado" });
+    }
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Error al obtener el usuario", error });
+  }
+});
+
 // Ruta para agregar un certificado a una persona
 router.post("/add", async (req, res) => {
   const { name, id, courseTitle } = req.body; // Incluye id aquí
