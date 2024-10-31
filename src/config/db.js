@@ -5,8 +5,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const mongoURI = process.env.MONGO_URI;
-console.log("ALERTA MONGO URI: ",mongoURI);
-
 
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,

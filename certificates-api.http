@@ -1,10 +1,10 @@
-GET http://localhost:3000/api/certificates/1053860833
+GET http://localhost:3000/api/certificates/5428889
 
 POST http://localhost:3000/api/certificates/add
 Content-Type: application/json
 
 {
-    "name": "Andrés Alejandro Yela Bastidas",
-    "id": "1087619754",
+    "name": "Rubi Johana Guevara Pantoja",
+    "id": "5428889",
     "courseTitle": "METROLOGÍA BÁSICA"
 }
