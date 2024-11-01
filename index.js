@@ -9,9 +9,7 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({
-  origin: 'http://localhost:4321', // Cambia el puerto al de tu frontend
-}));
+app.use(cors());
 app.use(express.json());
 
 
