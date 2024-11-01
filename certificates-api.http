@@ -1,3 +1,7 @@
+GET http://localhost:3000/api/certificates/validate/ME-UZDY-7732
+
+GET https://certificados-backend.onrender.com/api/certificates
+
 GET http://localhost:3000/api/certificates/5428889
 
 POST http://localhost:3000/api/certificates/add
