@@ -1,14 +1,14 @@
-GET http://localhost:3000/api/certificates/validate/ME-UZDY-7732
+GET https://certificados-backend.onrender.com/api/certificates/validate/ME-UZDY-7732
 
 GET https://certificados-backend.onrender.com/api/certificates
 
-GET http://localhost:3000/api/certificates/5428889
+GET https://certificados-backend.onrender.com/api/certificates/5428889
 
-POST http://localhost:3000/api/certificates/add
+POST http://certificados-backend.onrender.com/api/certificates/add
 Content-Type: application/json
 
 {
-    "name": "Rubi Johana Guevara Pantoja",
-    "id": "5428889",
-    "courseTitle": "METROLOGÍA BÁSICA"
+    "name": "Andrés Alejandro Yela Bastidas",
+    "id": "1087619754",
+    "courseTitle": "VERIFICACIÓN DE MÉTODOS"
 }
