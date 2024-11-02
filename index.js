@@ -9,7 +9,14 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://metropedia.vercel.app/', // Cambia esto por tu dominio
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Permite enviar cookies
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 
