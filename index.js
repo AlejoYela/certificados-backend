@@ -13,7 +13,7 @@ const app = express();
 
 app.use(express.json());
 const corsOptions = {
-  origin: "https://localhost:3000", // Cambia esto por tu dominio
+  origin: "https://metropedia.vercel.app", // Cambia esto por tu dominio
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true, // Permite enviar cookies
 };
