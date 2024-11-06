@@ -1,8 +1,8 @@
-POST http://localhost:3000/api/certificates/add
+POST http://certificados-backend.onrender.com/api/certificates/add
 Content-Type: application/json
 
 {
-    "name": "Andrés Alejandro Yela Bastidas",
-    "id": "1087619754",
-    "courseTitle": "VERIFICACIÓN DE MÉTODOS"
+    "name": "Damaris Joanta Pulido Rolón",
+    "id": "1049625178",
+    "courseTitle": "INDICADORES DE GESTIÓN"
 }
