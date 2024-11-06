@@ -10,7 +10,10 @@ const cursos = [
   { titulo: "REGLAS DE DECISIÓN", duracion: 6 },
   { titulo: "ISO/IEC 10012:2003 SISTEMAS DE GESTIÓN DE LA MEDICIÓN", duracion: 8 },
   { titulo: "VOCABULARIO INTERNACIONAL DE METROLOGÍA", duracion: 8 },
-  { titulo: "ESTIMACIÓN DE LA INCERTIDUMBRE", duracion: 8 }
+  { titulo: "ESTIMACIÓN DE LA INCERTIDUMBRE", duracion: 8 },
+  { titulo: "ISO/IEC 19011:2018 AUDITORÍA DE SISTEMAS DE GESTIÓN", duracion: 8 },
+  { titulo: "ISO/IEC 31000:2018 GESTIÓN DEL RIESGO", duracion: 8 },
+  { titulo: "INDICADORES DE GESTIÓN", duracion: 8 },
 ];
 
 // Función para generar un número de certificado único
