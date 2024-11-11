@@ -25,12 +25,12 @@ app.use(cors(corsOptions));
 app.use("/api/certificates", certificatesRouter);
 app.use("/api/auth", authRouter); // Rutas de autenticación
 
-app.post("/auth/token", async (req, res) => {
-  const { code } = req.body;
+app.post("/auth/token/:code", async (req, res) => {
+  const { code } = req.params; // El código de la URL
 
   const clientId = process.env.AUTH0_CLIENT_ID;
   const clientSecret = process.env.AUTH0_CLIENT_SECRET;
-  const redirectUri = "http://localhost:4321/login";
+  const redirectUri = "https://metropedia.vercel.app/login";
 
   try {
     const response = await fetch("https://dev-6tbiy7tc5eqhqb7k.us.auth0.com/oauth/token", {
@@ -45,7 +45,10 @@ app.post("/auth/token", async (req, res) => {
       }),
     });
 
-    if (!response.ok) throw new Error("Error al obtener el token");
+    if (!response.ok) {
+      const errorBody = await response.json();
+      throw new Error(`Error al obtener el token: ${errorBody.error_description || errorBody.error}`);
+    }
 
     const data = await response.json();
     res.json(data); // Envía el token al frontend
@@ -53,6 +56,8 @@ app.post("/auth/token", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

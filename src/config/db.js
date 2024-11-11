@@ -16,6 +16,6 @@ mongoose.connect(mongoURI, {
 mongoose.connection.once('open', () => {
     console.log(`Conectado a la base de datos: ${mongoose.connection.name}`);
 });
-
+ 
 module.exports = mongoose; 
 
