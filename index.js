@@ -23,6 +23,7 @@ app.use(cors(corsOptions));
 
 // Rutas
 app.use("/api/certificates", certificatesRouter);
+
 app.use("/api/auth", authRouter); // Rutas de autenticación
 
 app.post("/auth/token/:code", async (req, res) => {
@@ -42,6 +43,7 @@ app.post("/auth/token/:code", async (req, res) => {
         client_secret: clientSecret,
         code,
         redirect_uri: redirectUri,
+        scope: "openid profile email" 
       }),
     });
 
@@ -51,6 +53,8 @@ app.post("/auth/token/:code", async (req, res) => {
     }
 
     const data = await response.json();
+    console.log("data: ",data);
+    
     res.json(data); // Envía el token al frontend
   } catch (error) {
     res.status(500).json({ message: error.message });
