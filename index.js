@@ -7,6 +7,7 @@ require("./src/config/db.js"); // Importa el archivo de conexión a la base de d
 const certificatesRouter = require("./src/routes/certificatesRoutes.js");
 const authRouter = require("./src/routes/authRoutes.js"); // Importa las rutas de autenticación
 const usersRouter = require("./src/routes/usersRoutes.js");
+const coursesRouter = require("./src/routes/coursesRoutes.js")
 
 dotenv.config();
 
@@ -24,8 +25,9 @@ app.use(cors(corsOptions));
 
 // Rutas
 app.use("/api/certificates", certificatesRouter);
-app.use("/api/auth", authRouter); 
-app.use("/api/user", usersRouter); 
+app.use("/api/auth", authRouter);
+app.use("/api/user", usersRouter);
+app.use("/api/courses", coursesRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

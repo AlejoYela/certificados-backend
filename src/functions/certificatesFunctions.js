@@ -3,17 +3,17 @@ const Person = require("../../models/Person.js");
 // Conjunto para almacenar los números de certificado únicos generados
 const generatedCertificates = new Set();
 
-// Lista de cursos con título y duración
+// Lista de cursos con título, duración y código
 const cursos = [
-  { titulo: "METROLOGÍA BÁSICA", duracion: 8 },
-  { titulo: "VERIFICACIÓN DE MÉTODOS", duracion: 12 },
-  { titulo: "REGLAS DE DECISIÓN", duracion: 6 },
-  { titulo: "ISO/IEC 10012:2003 SISTEMAS DE GESTIÓN DE LA MEDICIÓN", duracion: 8 },
-  { titulo: "VOCABULARIO INTERNACIONAL DE METROLOGÍA", duracion: 8 },
-  { titulo: "ESTIMACIÓN DE LA INCERTIDUMBRE", duracion: 8 },
-  { titulo: "ISO/IEC 19011:2018 AUDITORÍA DE SISTEMAS DE GESTIÓN", duracion: 8 },
-  { titulo: "ISO/IEC 31000:2018 GESTIÓN DEL RIESGO", duracion: 8 },
-  { titulo: "INDICADORES DE GESTIÓN", duracion: 8 },
+  { titulo: "METROLOGÍA BÁSICA", duracion: 8, code: "METROLOGIABASICA" },
+  { titulo: "VERIFICACIÓN DE MÉTODOS", duracion: 12, code: "VERIFICACION" },
+  { titulo: "REGLAS DE DECISIÓN", duracion: 6, code: "REGLASDECISION" },
+  { titulo: "ISO/IEC 10012:2003 SISTEMAS DE GESTIÓN DE LA MEDICIÓN", duracion: 8, code: "ISO10012" },
+  { titulo: "VOCABULARIO INTERNACIONAL DE METROLOGÍA", duracion: 8, code: "VIM" },
+  { titulo: "ESTIMACIÓN DE LA INCERTIDUMBRE", duracion: 8, code: "INCERTIDUMBRE" },
+  { titulo: "ISO/IEC 19011:2018 AUDITORÍA DE SISTEMAS DE GESTIÓN", duracion: 8, code: "ISO19011" },
+  { titulo: "ISO/IEC 31000:2018 GESTIÓN DEL RIESGO", duracion: 8, code: "ISO31000" },
+  { titulo: "INDICADORES DE GESTIÓN", duracion: 8, code: "INDICADORES" },
 ];
 
 // Función para generar un número de certificado único
@@ -65,6 +65,7 @@ async function addPersonCertificate(name, id, courseTitle) { // Incluye el id co
   // Crea el nuevo certificado
   const personCertificate = {
     course: courseTitle,
+    courseCode: course.code, 
     duration: course.duracion,
     certificate: certificateNumber,
     date: new Date() // Fecha actual
