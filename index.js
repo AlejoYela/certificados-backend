@@ -17,7 +17,7 @@ app.use(express.json());
 const allowedOrigins = [
   "https://metropedia.vercel.app",
   "https://www.metropedia.net",
-  "https://localhost:4321",
+  "http://localhost:4321",
 ];
 
 const corsOptions = {
