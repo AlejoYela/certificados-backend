@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 const allowedOrigins = [
   "https://metropedia.vercel.app",
-  "https://metropedia.net",
+  "https://www.metropedia.net",
   "https://localhost:4321",
 ];
 
