@@ -14,13 +14,25 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
+const allowedOrigins = [
+  "https://metropedia.vercel.app",
+  "https://metropedia.net",
+  "https://localhost:4321",
+];
+
 const corsOptions = {
-  origin: "https://metropedia.vercel.app", // Cambia esto por tu dominio
+  origin: (origin, callback) => {
+    // Si el origen está en la lista de permitidos o no hay origen (para solicitudes como Postman)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("No permitido por CORS"));
+    }
+  },
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, // Permite enviar cookies
+  credentials: true,
 };
 
-//app.use(cors(corsOptions));
 app.use(cors(corsOptions));
 
 // Rutas
