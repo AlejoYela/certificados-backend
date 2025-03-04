@@ -41,7 +41,7 @@ function generateCertificate() {
 }
 
 // Función para agregar un certificado a una persona y devolver los datos actualizados
-async function addPersonCertificate(name, id, courseTitle) { // Incluye el id como parámetro
+async function addPersonCertificate(email, name, id, courseTitle, link) { // Incluye el id como parámetro
   const certificateNumber = generateCertificate();
   const course = cursos.find(c => c.titulo === courseTitle);
 
@@ -58,6 +58,7 @@ async function addPersonCertificate(name, id, courseTitle) { // Incluye el id co
     person = new Person({
       name,
       id, // Usa el id recibido en la solicitud
+      email,
       certificates: []
     });
   }
@@ -68,7 +69,8 @@ async function addPersonCertificate(name, id, courseTitle) { // Incluye el id co
     courseCode: course.code, 
     duration: course.duracion,
     certificate: certificateNumber,
-    date: new Date() // Fecha actual
+    date: new Date(), // Fecha actual
+    link: link
   };
 
   // Agrega el certificado al array de certificados de la persona

@@ -2,6 +2,6 @@ POST http://certificados-backend.onrender.com/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "andres.alejo.yela@gmail.com",
+    "email": "juanherrera11727@gmail.com",
     "password": "990226ayb++"
 }

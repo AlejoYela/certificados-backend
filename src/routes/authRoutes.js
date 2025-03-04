@@ -34,7 +34,7 @@ router.post("/register", async (req, res) => {
         }
 
         // Crear nuevo usuario en la colección `users` con un array vacío para `certificates`
-        const newUser = await Person.create({ name, id, certificates: [] });
+        const newUser = await Person.create({ name, email, id, certificates: [] });
 
         // Encriptar la contraseña
         const hashedPassword = await bcrypt.hash(password, 10);

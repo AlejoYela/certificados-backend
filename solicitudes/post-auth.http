@@ -2,8 +2,8 @@ POST http://certificados-backend.onrender.com/api/auth/register
 Content-Type: application/json
 
 {
-    "name": "Andrés Alejandro Yela Bastidas",
-    "id": "1087619754",
-    "email": "andres.alejo.yela@gmail.com",
+    "name": "Juan Andres Herrera Aroca",
+    "id": "1003828893",
+    "email": "juanherrera11727@gmail.com",
     "password": "990226Aayb++"
 }
