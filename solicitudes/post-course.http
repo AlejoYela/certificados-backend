@@ -2,7 +2,8 @@ POST http://certificados-backend.onrender.com/api/certificates/add
 Content-Type: application/json
 
 {
-    "name": "Juan Andres Herrera Aroca",
-    "id": "1003828893",
+    "name": "Yojan Gonzalez",
+    "id": "1082806377",
+    "email": "yojangonzalez431@gmail.com",
     "courseTitle": "METROLOGÍA BÁSICA"
 }

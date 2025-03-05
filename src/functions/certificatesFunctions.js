@@ -14,6 +14,12 @@ const cursos = [
   { titulo: "ISO/IEC 19011:2018 AUDITORÍA DE SISTEMAS DE GESTIÓN", duracion: 8, code: "ISO19011" },
   { titulo: "ISO/IEC 31000:2018 GESTIÓN DEL RIESGO", duracion: 8, code: "ISO31000" },
   { titulo: "INDICADORES DE GESTIÓN", duracion: 8, code: "INDICADORES" },
+  { titulo: "ISO/IEC 9001:2015 SISTEMAS DE GESTIÓN DE LA CALIDAD", duracion: 8, code: "ISO9001" },
+  { titulo: "ISO/IEC 17025:2017 REQUISITOS GENERALES PARA LA COMPETENCIA DE LOS LABORATORIOS", duracion: 12, code: "ISO17025" },
+  { titulo: "ESTADÍSTICA BÁSICA", duracion: 8, code: "ESTADISTICA" },
+  { titulo: "ASEGURAMIENTO DE VALIDEZ DE RESULTADOS", duracion: 8, code: "VALIDEZRESULTADOS" },
+  { titulo: "TRATAMIENTO DE NO CONFORMIDADES", duracion: 8, code: "NOCONFORMIDADES" },
+  { titulo: "ISO/IEC 17043:2010 ENSAYOS DE APTITUD", duracion: 8, code: "ISO17043" }
 ];
 
 // Función para generar un número de certificado único

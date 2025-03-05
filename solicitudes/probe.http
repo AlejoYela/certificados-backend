@@ -2,7 +2,8 @@ POST http://localhost:3000/api/certificates/add
 Content-Type: application/json
 
 {
-    "name": "Juan Andres Herrera Aroca",
-    "id": "1003828893",
-    "courseTitle": "METROLOGÍA BÁSICA"
+    "name": "Julián Andrés Nontien Cuervo",
+    "id": "1057597060",
+    "email": "nontienjulian95@gmail.com",
+    "courseTitle": "ISO/IEC 17043:2010 ENSAYOS DE APTITUD"
 }
